@@ -10,8 +10,8 @@
              { new_prefix: $( this )[0].id,
                date: {{ date_str }}
              }, function(data) {
-               $('a#'+data['plot_type']).attr('href', '{{ plot_url }}'+data["new_prefix"]+'-{{ date_str }}.png');
-               $('img#'+data['plot_type']).attr('src', '{{ plot_url }}'+data["new_prefix"]+'-{{ date_str }}.png');
+               $('a#'+data['plot_type']).attr('href', '{{ plot_url }}{{site_id}}-'+data["new_prefix"]+'-{{ date_str }}.png');
+               $('img#'+data['plot_type']).attr('src', '{{ plot_url }}{{site_id}}-'+data["new_prefix"]+'-{{ date_str }}.png');
                $('button.'+data['plot_type']).attr('class', 'btn btn-default btn-xs change-plot '+data['plot_type']);
                $('button#'+data['new_prefix']).attr('class', 'btn btn-primary btn-xs change-plot '+data['plot_type']);
                // $('#session').text( "{{ session }}|e" );
@@ -48,8 +48,8 @@
 
       </div>
     <div class="col-xs-12 plot-image">
-      <a href="{{ plot_url }}{{ session.prefixes[p] }}-{{ date_str }}.png" class=image-link data-lightbox="{{ p }}" id={{ p }}>
-        <img class=img-responsive id={{ p }} src="{{ plot_url }}{{ session.prefixes[p] }}-{{ date_str }}.png">
+      <a href="{{ plot_url }}{{site_id}}-{{ session.prefixes[p] }}-{{ date_str }}.png" class=image-link data-lightbox="{{ p }}" id={{ p }}>
+        <img class=img-responsive id={{ p }} src="{{ plot_url }}{{site_id}}-{{ session.prefixes[p] }}-{{ date_str }}.png">
       </a>
       </div>
     </div>
