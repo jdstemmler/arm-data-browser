@@ -1,64 +1,35 @@
 from collections import defaultdict
 
-prefix_to_type = {
+prefix_info = {
 
-    '10um-scattering-linear':       'scattering',
-    '10um-scattering-log':          'scattering',
-    '1um-scattering-linear':        'scattering',
-    '1um-scattering-log':           'scattering',
+    'scattering-10um-linear':       {'shortname': 'scattering', 'title': '10um Linear'},
+    'scattering-10um-log':          {'shortname': 'scattering', 'title': '10um Log'},
+    'scattering-1um-linear':        {'shortname': 'scattering', 'title': '1um Linear'},
+    'scattering-1um-log':           {'shortname': 'scattering', 'title': '1um Log'},
 
-    'aerosol-concentration-linear': 'aerosol',
-    'aerosol-concentration-log':    'aerosol',
+    'uhsas-concentration-linear':   {'shortname': 'aerosol', 'title': 'Linear'},
+    'uhsas-concentration-log':      {'shortname': 'aerosol', 'title': 'Log'},
 
-    'boundary-layer-radar':         'radar',
-    'full-height-radar':            'radar',
+    'radar-boundary-layer':         {'shortname': 'radar', 'title': 'Boundary Layer'},
+    'radar-full-height':            {'shortname': 'radar', 'title': 'Full Height'},
 
-    'ccn':                          'ccn',
+    'ccn-concentration':            {'shortname': 'ccn', 'title': 'CCN'},
 
-    'cn-linear':                    'cn',
-    'cn-log':                       'cn',
+    'cn-concentration-linear':      {'shortname': 'cn', 'title': 'Linear'},
+    'cn-concentration-log':         {'shortname': 'cn', 'title': 'Log'},
 
-    'co-linear':                    'co',
-    'co-log':                       'co',
+    'co-concentration-linear':      {'shortname': 'co', 'title': 'Linear'},
+    'co-concentration-log':         {'shortname': 'co', 'title': 'Log'},
 
-    'precip':                       'precip',
-    'wind':                         'wind',
-    'wind-rose':                    'rose',
+    'precip':                       {'shortname': 'precip', 'title': 'Precipitation'},
+    'wind-timeseries':              {'shortname': 'wind', 'title': 'Wind'},
+    'wind-rose':                    {'shortname': 'rose', 'title': 'Wind Rose'},
 
-    'uhsas':                        'uhsas'
+    'uhsas-distribution':           {'shortname': 'uhsas', 'title': 'UHSAS'},
 
 }
 
 type_to_prefix = defaultdict(list)
 
-for k, v in prefix_to_type.items():
-    type_to_prefix[v].append(k)
-
-prefix_labels = {
-
-    '10um-scattering-linear':       '10um Linear',
-    '10um-scattering-log':          '10um Log',
-    '1um-scattering-linear':        '1um Linear',
-    '1um-scattering-log':           '1um Log',
-
-    'aerosol-concentration-linear': 'Linear',
-    'aerosol-concentration-log':    'Log',
-
-    'boundary-layer-radar':         'Boundary Layer',
-    'full-height-radar':            'Full Height',
-
-    'ccn':                          'CCN',
-
-    'cn-linear':                    'Linear',
-    'cn-log':                       'Log',
-
-    'co-linear':                    'Linear',
-    'co-log':                       'Log',
-
-    'precip':                       'Precipitation',
-    'wind':                         'Wind',
-    'wind-rose':                    'Wind Rose',
-
-    'uhsas':                        'UHSAS'
-
-}
+for k, v in prefix_info.items():
+    type_to_prefix[v['shortname']].append(k)
