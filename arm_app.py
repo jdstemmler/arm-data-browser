@@ -87,12 +87,17 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/<site_id>', methods=['GET',])
+@app.route('/<site_id>', methods=['GET', 'POST'])
 def site(site_id):
     if site_id not in SUPPORTED_SITES:
         return render_template('site_not_found.html')
+    elif request.method == 'POST':
+        date = request.form.get('date')
+        if date is not None:
+            return redirect(url_for('figures_page', site_id=site_id, date=date))
     else:
-        default_date = (datetime.datetime.utcnow() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
+        # default_date = (datetime.datetime.utcnow() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
+        default_date = datetime.date(2017, 1, 16)
         return render_template('site_index.html', site=site_id, date=default_date)
 
 
