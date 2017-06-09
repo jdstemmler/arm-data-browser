@@ -1,5 +1,5 @@
-from arm_app import app as application
+from arm_app import app
 # from myproject import application
 
 if __name__ == "__main__":
-    application.run()
+    app.run()
