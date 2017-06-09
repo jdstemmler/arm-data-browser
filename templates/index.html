@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-xs-12 col-md-offset-3 col-md-6">
+<div class="row">
+  <div class="col-xs-12">
+    <h1>ARM Data Browser Homepage</h1>
+    <p>
+      Welcome to the Atmospheric Radiation Measurement (ARM) Data Browser.
+      This site is created and maintained by Jayson Stemmler of the University
+      of Washington (<a href="mailto:jstemm@uw.edu">jstemm@uw.edu</a>).
+    </p>
+
+    <p>
+      This site provides quick and easy access to a number of data products from
+      a selection of ARM sites. The data used in the visualizations were
+      downloaded from the ARM Data Archive, which can be accessed through the "Order
+      ARM Data" in the navigation menu.
+    </p>
+
+    <p>
+      Please select a site of interest to continue.
+    </p>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <a href="/ena">
+      <h2>Eastern North Atlantic (ENA) Permanent Site</h2>
+    </a>
+    <p>
+      The Eastern North Atlantic (ENA) atmospheric observatory is the newest measurement site established by the ARM Climate Research Facility. This observatory is located on Graciosa Island in the Azores archipelago. The Azores are located in the northeastern Atlantic Ocean west of Portugal.
+    </p>
+  </div>
+
+  <div class="col-xs-12">
+    <a href="/asi">
+      <h2> Ascension Islands (ASI) ARM Mobile Facility</h2>
+    </a>
+    <p>
+      The first ARM Mobile Facility's (AMF1) cloud, aerosol, and atmospheric profiling instrumentation is deployed to Ascension Island (8 degrees south latitude and 15 degrees west longitude), located within the trade-wind shallow cumulus regime 3,000 kilometers offshore continental Africa. This is within the latitude zone of the maximum outflow of aerosol, with the deepening boundary layer known to entrain free tropospheric smoke.
+    </p>
+  </div>
+</div>
+</div>
+{% endblock %}

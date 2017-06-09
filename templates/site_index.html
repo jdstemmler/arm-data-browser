@@ -4,57 +4,13 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h1>ENA Data Browser</h1>
+    <h1>{{site | upper}} Data Browser</h1>
   </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-8">
-
-    <p>
-      Welcome to the data browser for the Atmospheric Radiation Measurement's
-      Eastern North Atlantic permanent site. This site is created and maintained by
-      Jayson Stemmler of the University of Washington (<a href=
-      "mailto:jstemm@uw.edu">jstemm@uw.edu</a>). You should send him any questions or
-      issues you have, not ARM.
-    </p>
-
-    <p>
-      This site provides quick and easy access to a number of data products from
-      the permanent ARM site in the ENA. The data used in the visualizations were
-      downloaded from the ARM Data Archive, which can be accessed through the "Order
-      ENA Data" in the navigation menu.
-    </p>
-
-    <p>
-      To begin, input a date into the field below and hit submit. At the moment,
-      the plots are static png files which link to their full-sized versions. I am
-      working on making some more interactive plots for a future version.
-    </p>
-
-  </div>
-
-  <div class="col-xs-12 col-md-4">
-
-    <em>Products currently shown include:</em>
-
-    <ul>
-        <li>UHSAS Aerosol Size Distributions and Aerosol Concentration</li>
-        <li>CCN Number Concentration</li>
-        <li>Aerosol Scattering Coefficient</li>
-        <li>CN Number Concentration</li>
-        <li>CO Concentration</li>
-        <li>K-A band Zenith Radar</li>
-        <li>Mean Precip Rate</li>
-        <li>Wind Speed and Direction</li>
-    </ul>
-  </div>
-
 </div>
 
 <div class="row" id="submit-date">
   <div class="col-xs-12">
-    <form class="form-inline text-center" action="{{ url_for('_get_figures_page') }}" id="ena-figures" method="post" name="ena-figures">
+    <form class="form-inline text-center" action="{{ url_for('site', site_id=site) }}" id="ena-figures" method="post" name="ena-figures">
       <div class="form-group">
         <input class="form-control" name="date" type="date" value="{{ date|default('2015-08-19') }}">
         <input class="btn btn-primary" type="submit" value="Submit">
