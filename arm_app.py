@@ -150,13 +150,21 @@ def figures_page(site_id, date):
                            **global_params)
 
 
-@app.route('/worldview/<resource>/<date>')
-def worldview_image(resource, date):
+@app.route('/worldview/<resource>/<site_id>/<date>')
+def worldview_image(resource, site_id, date):
+
+    locs = {'asi':
+                {'extent': '-70,-50,20,10',
+                 'v': '-68.11415636733409,-41.439758682728495,33.13584363266591,14.739928817271503'},
+            'ena':
+                {'extent': '-79.875,0,0,60.75',
+                 'v': '-160.453125,-57.09375,74.390625,78.1875'}}
+
     if resource == 'static':
 
         params = {'base_url': 'http://gibs.earthdata.nasa.gov/image-download',
                   'TIME': datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%Y%j'),
-                  'extent': '-79.875,0,0,60.75',
+                  'extent': locs[site_id]['extent'],
                   'layers': 'MODIS_Aqua_CorrectedReflectance_TrueColor,Coastlines',
                   'opacities': '1,1',
                   'worldfile': 'false',
@@ -178,7 +186,7 @@ def worldview_image(resource, date):
                  'Calipso_Orbit_Asc,Coastlines,,,,,,AMSR2_Cloud_Liquid_Water_Day(hidden),'\
                  'AMSR2_Cloud_Liquid_Water_Night(hidden),' \
                  'AMSR2_Wind_Speed_Day(hidden),AMSR2_Wind_Speed_Night(hidden),'
-        v = '-160.453125,-57.09375,74.390625,78.1875'
+        v = locs[site_id]['v']
 
         full_url = '{base_url}?p=geographic&l={layers}&t={date}&v={v}'.format(base_url=base_url,
                                                                               layers=layers, date=date, v=v)
