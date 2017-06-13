@@ -39,7 +39,7 @@
     <div class="col-xs-12 plot-container" id={{ p }}>
       <div class="col-xs-12 plot-options">
         <div class="btn-group" role="group">
-      {% for prefix in types[p] if types[p]|length>1 %}
+      {% for prefix in types[p]|sort if types[p]|length>1 %}
         <button class='btn btn-{{ 'primary' if session.prefixes[p]==prefix else 'default'  }} btn-xs change-plot {{ p }}' id={{ prefix }}>
           {{ labels[prefix] }}
         </button>
