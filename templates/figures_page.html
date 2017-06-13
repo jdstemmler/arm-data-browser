@@ -70,8 +70,11 @@
     {% endfor %}
 
     <div class="col-xs-12 plot-image">
-      <a class="worldview" href="{{ url_for('worldview_image', date=date_str, resource='dynamic') }}" target="_blank">
-        <img class="img-responsive worldview" src="{{ url_for('worldview_image', date=date_str, resource='static') }}">
+      <a class="worldview"
+         href="{{ url_for('worldview_image', date=date_str, resource='dynamic', site_id=site_id) }}"
+         target="_blank">
+        <img class="img-responsive worldview"
+             src="{{ url_for('worldview_image', date=date_str, resource='static', site_id=site_id) }}">
       </a>
     </div>
   </div>
