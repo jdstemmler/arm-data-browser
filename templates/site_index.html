@@ -8,9 +8,11 @@
   </div>
 </div>
 
+{% include site+".html" ignore missing %}
+
 <div class="row" id="submit-date">
   <div class="col-xs-12">
-    <form class="form-inline text-center" action="{{ url_for('site', site_id=site) }}" id="ena-figures" method="post" name="ena-figures">
+    <form class="form-inline text-center" action="{{ url_for('site', site_id=site) }}" id="arm-figures" method="post" name="arm-figures">
       <div class="form-group">
         <input class="form-control" name="date" type="date" value="{{ date|default('2015-08-19') }}">
         <input class="btn btn-primary" type="submit" value="Submit">

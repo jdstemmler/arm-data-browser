@@ -82,9 +82,14 @@ def _set_session_prefix():
         return jsonify(plot_type=plot_type, new_prefix=new_prefix)
 
 
-@app.route('/', methods=['GET',])
+@app.route('/', methods=['GET', ])
 def index():
     return render_template('index.html')
+
+
+@app.route('/date/<date>', methods=['GET', ])
+def legacy_page(date):
+    return redirect(url_for('figures_page', site_id='ena', date=date))
 
 
 @app.route('/<site_id>', methods=['GET', 'POST'])
@@ -96,8 +101,8 @@ def site(site_id):
         if date is not None:
             return redirect(url_for('figures_page', site_id=site_id, date=date))
     else:
-        # default_date = (datetime.datetime.utcnow() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
-        default_date = datetime.date(2017, 1, 16)
+        default_date = (datetime.datetime.utcnow() - datetime.timedelta(days=7)).strftime('%Y-%m-%d')
+        # default_date = datetime.date(2017, 1, 16)
         return render_template('site_index.html', site=site_id, date=default_date)
 
 
