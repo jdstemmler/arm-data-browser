@@ -17,7 +17,7 @@ SUPPORTED_SITES = ('ena', 'asi')
 def instance_file(f):
     return os.path.join(app.instance_path, f)
 
-app.config['SECRET_KEY'] = io.open(instance_file('.flask_secret'), 'rb').read()
+# app.config['SECRET_KEY'] = io.open(instance_file('.flask_secret'), 'rb').read()
 
 
 def list_soundings(url):
