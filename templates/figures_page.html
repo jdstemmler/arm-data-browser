@@ -39,7 +39,7 @@
     <div class="col-xs-12 plot-container" id={{ p }}>
       <div class="col-xs-12 plot-options">
         <div class="btn-group" role="group">
-      {% for prefix in types[p] if types[p]|length>1 %}
+      {% for prefix in types[p]|sort if types[p]|length>1 %}
         <button class='btn btn-{{ 'primary' if session.prefixes[p]==prefix else 'default'  }} btn-xs change-plot {{ p }}' id={{ prefix }}>
           {{ labels[prefix] }}
         </button>
@@ -70,12 +70,18 @@
     {% endfor %}
 
     <div class="col-xs-12 plot-image">
-      <a class="worldview" href="{{ url_for('worldview_image', date=date_str, resource='dynamic') }}" target="_blank">
-        <img class="img-responsive worldview" src="{{ url_for('worldview_image', date=date_str, resource='static') }}">
+      <a class="worldview"
+         href="{{ url_for('worldview_image', date=date_str, resource='dynamic', site_id=site_id) }}"
+         target="_blank">
+        <img class="img-responsive worldview"
+             src="{{ url_for('worldview_image', date=date_str, resource='static', site_id=site_id) }}">
       </a>
     </div>
   </div>
 
+</div>
+
+<div id="footer-row" class="row" style="padding-top:20px">
 </div>
 
 {% endblock %}
