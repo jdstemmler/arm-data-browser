@@ -18,7 +18,7 @@ steps:
 - script: |
     python3.7 -m venv antenv
     source antenv/bin/activate
-    pip3.7 install setuptools
+    pip3.7 install setuptools python3-dateutil
     pip3.7 install -r requirements.txt
 
   # The displayName is shows in the pipeline UI when a build runs
@@ -31,7 +31,6 @@ steps:
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/Application$(Build.BuildId).zip'
     replaceExistingArchive: true
-    verbose: # Optional
 
 - task: AzureRMWebAppDeployment@4
   displayName: Azure App Service Deploy
